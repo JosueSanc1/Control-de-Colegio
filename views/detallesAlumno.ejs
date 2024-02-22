@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Alumno</title>
+
+    <!-- Agrega tus estilos en línea o enlaza a una hoja de estilo externa -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Detalles del Alumno</h1>
+    </header>
+
+    <main>
+        <h2>Información del Alumno</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Edad</th>
+                    <th>Nivel Educativo</th>
+                    <th>Cargo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><%= alumno.nombre %></td>
+                    <td><%= alumno.edad %></td>
+                    <td><%= alumno.nivelEducativo %></td>
+                    <td>$<%= alumno.cargo %></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Historial de Pagos</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Método de Pago</th>
+                    <th>Abono</th>
+                    <th>Saldo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% pagos.forEach(pago => { %>
+                    <tr>
+                        <td><%= pago.fecha.toLocaleDateString() %></td>
+                        <td><%= pago.metodoPago %></td>
+                        <td>$<%= pago.abono.toFixed(2) %></td>
+                        <td>$<%= pago.saldo.toFixed(2) %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+
+        <!-- Enlace para volver a la página de listado de alumnos -->
+        <a href="/alumnos">Volver al Listado de Alumnos</a>
+    </main>
+</body>
+
+</html>

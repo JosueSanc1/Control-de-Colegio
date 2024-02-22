@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colegio Monte Maria - Lista de Alumnos</title>
+  <!-- Agrega los enlaces a los estilos de Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .container {
+      flex: 1;
+      margin-top: 20px;
+    }
+
+    .table {
+      margin-top: 20px;
+    }
+
+    h1 {
+      color: #004085;
+    }
+
+    a.btn {
+      margin-right: 10px;
+    }
+
+    footer {
+      margin-top: auto;
+      text-align: center;
+      padding: 10px;
+      background-color: #343a40;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Colegio Monte Maria - Lista de Alumnos</h1>
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Edad</th>
+          <th scope="col">Nivel Educativo</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% alumnos.forEach(alumno => { %>
+          <tr>
+            <td><%= alumno.nombre %></td>
+            <td><%= alumno.edad %></td>
+            <td><%= alumno.nivelEducativo %></td>
+            <td>
+              
+            </form>
+              <a href="/alumnos/detalles/<%= alumno._id %>" class="btn btn-primary">Detalles</a>
+              <a href="/alumnos/pago/<%= alumno._id %>" class="btn btn-success">Realizar Pago</a>
+              <a href="/alumnos/editar/<%= alumno._id %>" class="btn btn-warning">Editar</a>
+              <a href="/alumnos/eliminar/<%= alumno._id %>" class="btn btn-danger">Eliminar</a>
+            </td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+    <!-- Botón para crear un nuevo alumno -->
+    <a href="/alumnos/nuevo" class="btn btn-primary">Crear Alumno</a>
+
+    <a href="/reportes" class="btn btn-primary">Ver Reportes</a>
+
+    <a href="/reporte-alumnos"class="btn btn-primary">Ver Reporte de Alumnos por Nivel Educativo</a>
+  </div>
+
+  <footer>
+    &copy; 2023 Colegio Monte Maria - Todos los derechos reservados
+  </footer>
+
+  <!-- Agrega los scripts de Bootstrap y cualquier otro script necesario -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte de Alumnos por Nivel Educativo</title>
+
+    <!-- Agrega tus estilos en línea o enlaza a una hoja de estilo externa -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Reporte de Alumnos por Nivel Educativo</h1>
+    </header>
+
+    <main>
+        <!-- Formulario de filtro -->
+        <form action="/reporte-alumnos" method="GET">
+            <label for="nivelEducativo">Filtrar por Nivel Educativo:</label>
+            <select name="nivelEducativo" id="nivelEducativo">
+                <option value="">Todos</option>
+                <option value="Primaria">Primaria</option>
+                <option value="Basico">Basico</option>
+                <option value="Bachillerato">Bachillerato</option>
+            </select>
+            <button type="submit">Filtrar</button>
+        </form>
+
+        <!-- Tabla de resultados -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Edad</th>
+                    <th>Nivel Educativo</th>
+                    <!-- Agrega más columnas según tus necesidades -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Filas de datos -->
+                <% alumnosPorNivel.forEach(alumno => { %>
+                    <tr>
+                        <td><%= alumno.nombre %></td>
+                        <td><%= alumno.edad %></td>
+                        <td><%= alumno.nivelEducativo %></td>
+                        <!-- Agrega más columnas según tus necesidades -->
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+
+        <!-- Enlace para volver a la página de listado de alumnos -->
+        <a href="/alumnos">Volver al Listado de Alumnos</a>
+    </main>
+</body>
+
+</html>
+

@@ -1,0 +1,31 @@
+<!-- En tu vista de reportePendientes (reportePendientes.ejs) -->
+<!DOCTYPE html>
+<html lang="en">
+<!-- ... (incluye las etiquetas head y body) ... -->
+<body>
+    <header>
+        <h1>Reporte de Alumnos Pendientes de Pago</h1>
+    </header>
+
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <!-- Otras columnas según tus necesidades -->
+                </tr>
+            </thead>
+            <tbody>
+                <% alumnosPendientes.forEach(alumno => { %>
+                    <tr>
+                        <td><%= alumno.nombre %></td>
+                        <!-- Otras columnas según tus necesidades -->
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+
+        <a href="/alumnos">Volver al Listado de Alumnos</a>
+    </main>
+</body>
+</html>
